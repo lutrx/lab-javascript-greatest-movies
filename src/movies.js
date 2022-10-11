@@ -91,13 +91,17 @@ function orderAlphabetically(moviesArray) {
           return 1;
         }
 
-        return 0;
+       return 0;
       });
-      let twentyTitles = [];
-      for (let i = 0; i < 20; i++) {
-        twentyTitles.push(sortedArrayTitle[i]);
+      let arrayTitle = sortedArrayTitle.map((movie) => {
+        return movie.title;
+      });
+      if (arrayTitle.length > 20) {
+        let arrayTitleCut = arrayTitle.splice(0, 20);
+        return arrayTitleCut;
+      } else {
+        return arrayTitle;
       }
-      return twentyTitles;
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
